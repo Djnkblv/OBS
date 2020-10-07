@@ -8,9 +8,12 @@ CONFIG -= app_bundle
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        currentconditionsdisplay.cpp \
         displayelement.cpp \
         main.cpp \
-        observer.cpp
+        observer.cpp \
+        subject.cpp \
+        weatherdata.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -18,5 +21,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    currentconditionsdisplay.h \
     displayelement.h \
-    observer.h
+    observer.h \
+    subject.h \
+    weatherdata.h
