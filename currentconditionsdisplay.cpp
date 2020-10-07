@@ -1,20 +1,19 @@
 #include "currentconditionsdisplay.h"
 
-CurrentConditionsDisplay::CurrentConditionsDisplay()
+CurrentConditionsDisplay::CurrentConditionsDisplay(Subject *weatherData)
 {
+    this->weatherData = weatherData;
+    weatherData->registerObserver(this);
+}
+
+void CurrentConditionsDisplay::update(float temperature, float humidity, float pressure) {
+    this->temperature = temperature;
+    this->humidity = humidity;
+    display();
 
 }
 
-void CurrentConditionsDisplay::update(float t, float h, float p) {
-    this->temperature = t;
-    this->humidity = h;
-    this->pressure = p;
-
-}
-
-void CurrentConditionsDisplay::display(){
-    cout << "Current conditions: " << endl << "\t"
-         << temperature << "℃" << endl
-         << "%" << humidity << endl
-         << pressure << "mm Hg" << endl;
+void CurrentConditionsDisplay::display() {
+    std::cout << "Current conditions: " << temperature << "C and "
+              << humidity << "% humidity" << std::endl;
 }

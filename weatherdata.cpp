@@ -8,6 +8,7 @@ WeatherData::WeatherData()
 void WeatherData::registerObserver(Observer *o){
     observers->append(o);
 }
+
 void WeatherData::removeObserver(Observer *o){
     // поиск наблюдателя))0
     int i = observers->indexOf(o);
@@ -22,6 +23,7 @@ void WeatherData::notifyObserver(){
         observer->update(temperature, humidity, pressure);
     }
 }
+
 void WeatherData::setMeasurementsChanged(float t, float h, float p){
     this->temperature = t;
     this->humidity = h;

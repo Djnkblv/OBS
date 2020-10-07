@@ -13,10 +13,10 @@ private:
     float pressure;
 public:
     WeatherData();
-    virtual void registerObserver(Observer *o);
-    virtual void removeObserver(Observer *o);
-    virtual void notifyObserver();
-    void setMeasurementsChanged(float t, float h, float p);
+    void registerObserver(Observer *o);
+    void removeObserver(Observer *o);
+    void notifyObserver();
+    void setMeasurementsChanged(float temp, float humidity, float pressure);
     void measurementsChanged();
 };
 
